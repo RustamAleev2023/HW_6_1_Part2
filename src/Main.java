@@ -1,6 +1,7 @@
 public class Main {
     public static void main(String[] args) {
-        task1();
+//        task1();
+        task2();
 
     }
 
@@ -110,4 +111,50 @@ public class Main {
         }
         return multiplyCosines;
     }
+
+    //Task2
+    //Задание 2
+    //Создать метод вычисляющий факториал. Вычислить факториал достаточно большое
+    // количество раз (миллион или больше), сравните эффективность рекурсивного и
+    // итерационного алгоритмов. Во сколько раз будет отличаться время выполнения
+    // и как это отношение будет зависеть от числа, факториал которого рассчитывается?
+    // Программа должна вывести на экран результат анализа.
+    public static void task2(){
+
+        int n = 1000;
+
+        long startFactByRec = System.nanoTime();
+        factorialByRecursion(n);
+        long endFactByRec = System.nanoTime();
+        long timeFactByRec = endFactByRec - startFactByRec;
+
+        long startFactByIt = System.nanoTime();
+        factorialByIteration(n);
+        long endFactByIt = System.nanoTime();
+        long timeFactByIt = endFactByIt - startFactByIt;
+
+        System.out.println("timeFactByRec = " + timeFactByRec);
+        System.out.println("timeFactByIt = " + timeFactByIt);
+        System.out.println("Итерационный алгоритм быстрее в " + (timeFactByRec/timeFactByIt) + " раз" );
+
+
+    }
+    public static long factorialByRecursion(int n){
+        long result;
+        if (n == 1) {
+            result = 1;
+        } else {
+            result = n * factorialByRecursion(n - 1);
+        }
+        return result;
+    }
+    public static long factorialByIteration(int n){
+        long result = 1;
+        for (int i = 1; i <= n; i++) {
+            result = result * i;
+        }
+
+        return result;
+    }
+
 }
