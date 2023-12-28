@@ -1,7 +1,10 @@
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
 //        task1();
-        task2();
+//        task2();
+        task3();
 
     }
 
@@ -157,4 +160,37 @@ public class Main {
         return result;
     }
 
+
+    //Task3
+    //Задание 3
+    //Создать метод, который будет сортировать по убыванию  одномерный массив случайных чисел из n
+    // элементов, переданный в качестве аргумента в этот метод. Сортировка должна быть устойчивой и
+    // иметь естественное поведение. (Не использовать Arrays.sort). Программа должна вывести на экран
+    // исходный и отсортированный массив.
+    public static void task3(){
+        int[] array = new int[]{1,3,2,5,4,7,6,9,8,10};
+        print(array);
+        sort(array);
+        print(array);
+
+    }
+    public static void print(int[] arr){
+        System.out.println(Arrays.toString(arr));
+    }
+    public static void sort(int[] arr){
+        boolean isSorted = false;
+        int temp;
+        while(!isSorted) {
+            isSorted = true;
+            for (int i = 0; i < arr.length-1; i++) {
+                if(arr[i] < arr[i+1]){
+                    isSorted = false;
+
+                    temp = arr[i];
+                    arr[i] = arr[i+1];
+                    arr[i+1] = temp;
+                }
+            }
+        }
+    }
 }
