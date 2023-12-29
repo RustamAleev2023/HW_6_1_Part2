@@ -6,7 +6,9 @@ public class Main {
 //        task1();
 //        task2();
 //        task3();
-        task4();
+//        task4();
+//        task5();
+        task6();
 
     }
 
@@ -326,7 +328,6 @@ public class Main {
     static int countRoundBracket;
 
     public static void task6() {
-
 
         String s = "(a[b](f[(g)(g)]))";
 
